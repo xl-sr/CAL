@@ -1,0 +1,5 @@
+# Tuning: 
+# Method 1: (P -> D)*n -> I
+# Method 2: P -> P/2 -> I -> D
+# Values: P, I, D
+0.06, 0.0258, 0.014
