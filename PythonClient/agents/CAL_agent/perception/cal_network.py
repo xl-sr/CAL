@@ -73,7 +73,7 @@ class TaskBlockEnsemble(object):
         return preds
 
 class CAL_network(object):
-    def __init__(self, ensemble=True):
+    def __init__(self, ensemble=False):
         front_model, _, preprocessing = get_conv_model()
         self.conv_model = front_model
         self.preprocessing = preprocessing     

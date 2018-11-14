@@ -18,7 +18,7 @@ class CoRL2017(ExperimentSuite):
 
     @property
     def train_weathers(self):
-        return [1, 3, 5, 8]
+        return [1, 3, 6, 8]
 
     @property
     def test_weathers(self):

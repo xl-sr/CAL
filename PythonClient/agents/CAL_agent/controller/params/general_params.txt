@@ -10,11 +10,11 @@
 2
 # 5: curve_slowdown (default:14)
 14
-# 6: DELTAl_DAMPING (default:0.01)
+# 6: DELTAl_DAMPING (default:0.03)
 0.03
 # 7: DELTAr_DAMPING (default:0.05)
 0.05
-# 8: DELTA0_DAMPING (default:0.15)
+# 8: DELTA0_DAMPING (default:0.05)
 0.05
 # 9: EXP_DECAY(default:0.15)
 0.15

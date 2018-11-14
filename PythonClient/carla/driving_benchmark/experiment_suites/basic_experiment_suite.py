@@ -18,10 +18,12 @@ class BasicExperimentSuite(ExperimentSuite):
 
     @property
     def train_weathers(self):
+        return [4]
         return [1,3,6,8]
 
     @property
     def test_weathers(self):
+        return []
         return [4,14]
 
     def build_experiments(self):
@@ -54,8 +56,8 @@ class BasicExperimentSuite(ExperimentSuite):
                     [51, 81], [77, 68], [56, 65], [43, 54]]]
 
             poses_tasks = corl_task2
-            vehicles_tasks = [15]*len(poses_tasks[0])
-            pedestrians_tasks = [50]*len(poses_tasks[0])
+            vehicles_tasks = [0]*len(poses_tasks[0])
+            pedestrians_tasks = [0]*len(poses_tasks[0])
 
         # We set the camera
         # This single RGB camera is used on every experiment

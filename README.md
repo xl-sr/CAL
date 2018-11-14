@@ -37,7 +37,7 @@ In CARLA_0.8.2/ start the server with for example: (see the [CARLA documentation
 
 
 ```Shell
-./CarlaUE4.sh Town01 -carla-server -windowed -benchmark -fps=10 -ResX=800 - ResY=600
+./CarlaUE4.sh Town01 -carla-server -windowed -benchmark -fps=20 -ResX=800 - ResY=600
 ```
 
 Open a second terminal, cd into CAL/PythonClient/ and run:
