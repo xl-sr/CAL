@@ -18,12 +18,10 @@ class BasicExperimentSuite(ExperimentSuite):
 
     @property
     def train_weathers(self):
-        return [6]
         return [1,3,6,8]
 
     @property
     def test_weathers(self):
-        return []
         return [4,14]
 
     def build_experiments(self):
@@ -55,7 +53,7 @@ class BasicExperimentSuite(ExperimentSuite):
                     [70, 73], [46, 67], [57, 50], [61, 49], [21, 12],
                     [51, 81], [77, 68], [56, 65], [43, 54]]]
 
-            poses_tasks = right_curves
+            poses_tasks = corl_task2
             vehicles_tasks = [0]*len(poses_tasks[0])
             pedestrians_tasks = [0]*len(poses_tasks[0])
 
