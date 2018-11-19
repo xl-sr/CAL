@@ -8,7 +8,7 @@ from keras import backend as K
 import numpy as np
 import tensorflow as tf
 
-DATA_HOME_DIR = os.path.dirname(__file__) + '/data/'
+DATA_HOME_DIR = os.path.dirname(__file__) + '/model_data/'
 MODEL_PATH = DATA_HOME_DIR + '/models/'
 WEIGHTS_PATH = DATA_HOME_DIR + '/results/'
 last_layer_keys = ['0_red_light', '1_hazard_stop', '2_speed_sign',\

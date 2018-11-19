@@ -17,8 +17,7 @@ def load_array(fname):
 class Centerlines(object):
 
     def __init__(self, city, pixel_density=16.43, node_density=50.0):
-        dir_path = os.path.dirname(__file__)
-        
+        dir_path = os.path.dirname(__file__)        
         self._pixel_density = pixel_density
         
         # Load the centerlines image and set straight as default
@@ -66,7 +65,7 @@ class Centerlines(object):
         # for curves of type 2
         file_lines = os.path.join(dir_path, city, 'centerlines_c2')
         self.c2, self.c2_grad = load_array(file_lines)
-
+        
     def set_centerlines(self, street):
         """
         set the centerline image according to the given direction

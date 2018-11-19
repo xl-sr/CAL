@@ -18,10 +18,12 @@ class BasicExperimentSuite(ExperimentSuite):
 
     @property
     def train_weathers(self):
+        return [8]
         return [1,3,6,8]
 
     @property
     def test_weathers(self):
+        return []
         return [4,14]
 
     def build_experiments(self):
@@ -45,7 +47,10 @@ class BasicExperimentSuite(ExperimentSuite):
             left_curves =  [[[57,82],[72,43],[52,79],[70,66],[43,14],[11,47],[79,32],[37,75],
                              [75,16],[26,73],[39,5],[2,37],[34,13],[6,35],[10,19],[23,6],
                              [5,30],[16,2]]] 
-            special_test =  [[[4, 2]]]
+            special_test = [[[19, 66], [79, 14],[42, 13], [31, 71], 
+                             [54, 30], [10, 61], [66, 3], [27, 12],
+                             [2, 29], [16, 14],[70, 73], [46, 67],
+                             [51, 81], [56, 65], [43, 54]]]
             corl_task2 = [[[19, 66], [79, 14], [19, 57], [23, 1],
                     [53, 76], [42, 13], [31, 71], [33, 5],
                     [54, 30], [10, 61], [66, 3], [27, 12],

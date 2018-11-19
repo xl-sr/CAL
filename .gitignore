@@ -4,7 +4,7 @@ CarlaUE4/
 weights/
 Engine/
 CarlaUE4.sh
-data/
+model_data/
 __pycache__/
 **.swp
 **.swo
