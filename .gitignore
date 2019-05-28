@@ -1,5 +1,9 @@
 _benchmarks_results/
+.ipynb_checkpoints/
+*.pth
 core
+dataset/
+dataset.tar.gz
 CarlaUE4/
 weights/
 Engine/
