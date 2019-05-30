@@ -62,13 +62,11 @@ class Recording(object):
 
         self._create_log_files()
 
-
-
         ### CHANGE TO ORIGINAL CODE: copy the general params into the folder
         if not continue_experiment:
-            params_path = 'agents/CAL_agent/controller/params'
+            BASE_PATH = os.path.abspath(os.path.join('.', '.'))
+            params_path = BASE_PATH + '/python_client/agents/CAL_agent/controller/params'
             copyfile(params_path + '/general_params.txt', self._path + '/general_params.txt')
-
 
         # A log with a date file: to show when was the last access and log what was tested,
         now = datetime.datetime.now()

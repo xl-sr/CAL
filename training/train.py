@@ -107,7 +107,6 @@ def fit(epochs, model, loss_func, opt, train_dl, valid_dl, dev='cuda', val_hist=
     since = time.time()
 
     val_hist = [] if val_hist is None else val_hist
-    best_model_wts = copy.deepcopy(model.state_dict())
     best_val_loss = np.inf if not val_hist else min(val_hist)
 
     for epoch in range(epochs):
@@ -121,12 +120,9 @@ def fit(epochs, model, loss_func, opt, train_dl, valid_dl, dev='cuda', val_hist=
             best_val_loss = val_loss
             PATH = f"./models/{model.params.name}.pth"
             torch.save(model.state_dict(), PATH)
-            best_model_wts = copy.deepcopy(model.state_dict())
 
     time_elapsed = time.time() - since
     print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
     print('Best val loss: {:4f}'.format(best_val_loss))
 
-    # load best model weights
-    model.load_state_dict(best_model_wts)
     return model, val_hist
