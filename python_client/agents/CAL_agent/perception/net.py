@@ -121,13 +121,9 @@ class TaskBlock(nn.Module):
     def forward(self, x_in, d=None):
         x = self.core(x_in)
         if self.type=='LSTM':
-            x = x[1][1].squeeze()
+            x = x[1][1]
         elif self.type=='GRU':
-            x = x[1].squeeze()
-        elif self.type=='TempConv':
-            x = x.squeeze()
-
-        if self.discrete: x = self.bn(x)
+            x = x[1]
         x = self.dropout(x)
 
         # handle conditional affordances
@@ -136,10 +132,6 @@ class TaskBlock(nn.Module):
             x *= bool_vec
 
         x = self.lin_out(x)
-        # # handle discrete affordances
-        # if self.lin_out.out_features > 1:
-        #     x = nn.Softmax()(x)
-
         return x
 
 class CAL_network(nn.Module):

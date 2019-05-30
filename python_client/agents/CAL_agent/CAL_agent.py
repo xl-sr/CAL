@@ -1,5 +1,4 @@
 import os, math, time
-import scipy
 import numpy as np
 from carla.agent import Agent
 from carla.carla_server_pb2 import Control
@@ -61,8 +60,8 @@ class CAL(Agent):
 
         # Agent Setup
         Agent.__init__(self)
-        self._neural_net = CAL_network()
-        self._seq_len = self._neural_net.model.params.seq_len
+        self._net = CAL_network()
+        self._seq_len = self._net.model.params.seq_len
         self._state = VehicleState()
         self._agents_present = False
 
@@ -119,10 +118,9 @@ class CAL(Agent):
 
         # cycle the image sequence
         new_im = sensor_data['CameraRGB'].data
-        new_im = self.net.preprocess(new_im)
+        new_im = self._net.preprocess(new_im)
         if not self._state.image_hist:
             self._state.image_hist = [new_im]*self._seq_len
-            self._state.image_hist = im0.repeat(self._seq_len, axis=1)
         else:
             self._state.image_hist.pop(0)
             self._state.image_hist.append(new_im)
@@ -161,7 +159,7 @@ class CAL(Agent):
     def _compute_action(self,carla_direction, direction):
         start = time.time()
         # Predict the intermediate representations
-        prediction = self.net.predict(self._state.image_hist, direction)
+        prediction = self._net.predict(self._state.image_hist, direction)
 
         logging.info("Time for prediction: {}".format(time.time() - start))
         logging.info("CARLA Direction {}, Real Direction {}".format(carla_direction, direction))

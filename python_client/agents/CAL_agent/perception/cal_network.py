@@ -31,7 +31,7 @@ def load_json(path):
     return f
 
 def to_np(t):
-    return np.array(t.cpu())
+    return np.array(t.data.cpu())
 
 def softmax(x):
     return np.exp(x)/sum(np.exp(x))
@@ -78,9 +78,10 @@ class CAL_network(object):
 
     def predict(self, sequence, direction):
         inputs = {
-            'sequence': torch.cat(sequence).to(self.device),
-            'direction': np.array(direction),
+            'sequence': torch.cat(sequence).unsqueeze(0).to(self.device),
+            'direction': torch.Tensor([direction]).to(dtype=torch.int),
         }
+
         preds = self.model(inputs)
         preds = {k: to_np(v) for k,v in preds.items()}
 
@@ -90,7 +91,7 @@ class CAL_network(object):
         return out
 
     def preprocess(self, arr):
-        im = self._transform(Image.open(arr))
+        im = self._transform(Image.fromarray(arr))
         return im.unsqueeze(0)
 
     @staticmethod

@@ -3,6 +3,7 @@ import pandas as pd
 from PIL import Image
 from ipdb import set_trace
 import bisect
+import json
 
 import torch
 from torchvision import transforms
@@ -63,6 +64,7 @@ def get_augmentations():
     return seq
 
 ### data transforms
+
 class Rescale(object):
     def __init__(self, scalar):
         self.scalar = scalar
@@ -119,6 +121,15 @@ def onehot(vals, possible_vals):
 
 def roll(x, n):
     return torch.cat((x[-n:], x[:-n]))
+
+def save_json(f, path):
+    with open(path + '.json', 'w') as json_file:  
+        json.dump(f, json_file)
+        
+def load_json(path):
+    with open(path + '.json', 'r') as json_file:  
+        f = json.load(json_file)
+    return f
 
 ### dataset
 LABEL_KEYS = ['red_light', 'hazard_stop', 'speed_sign',
@@ -197,7 +208,7 @@ def get_data(data_path, seq_len, batch_size):
     val_ds = CAL_Dataset(data_path, 'val', seq_len=seq_len)
     return (
         DataLoader(train_ds, batch_size=batch_size, shuffle=True, pin_memory=True, num_workers=10),
-        DataLoader(val_ds, batch_size=batch_size * 2, pin_memory=True, num_workers=10),
+        DataLoader(val_ds, batch_size=batch_size, pin_memory=True, num_workers=10),
     )
 
 def get_mini_data(data_path, seq_len, batch_size=32, l=4000):
