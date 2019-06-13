@@ -121,13 +121,13 @@ class TaskBlock(nn.Module):
     def forward(self, x_in, d=None):
         x = self.core(x_in)
         if self.type=='LSTM':
-            x = x[1][1]
+            x = x[1][1].squeeze()
         elif self.type=='GRU':
-            x = x[1]
+            x = x[1].squeeze()
         elif self.type=='TempConv':
-            x = x
-            
-        # if self.discrete: x = self.bn(x)
+            x = x.squeeze()
+
+        if self.discrete: x = self.bn(x)
         x = self.dropout(x)
 
         # handle conditional affordances

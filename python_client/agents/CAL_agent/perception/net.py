@@ -124,6 +124,8 @@ class TaskBlock(nn.Module):
             x = x[1][1]
         elif self.type=='GRU':
             x = x[1]
+        elif self.type=='TempConv':
+            x = x.squeeze(-1)
         x = self.dropout(x)
 
         # handle conditional affordances

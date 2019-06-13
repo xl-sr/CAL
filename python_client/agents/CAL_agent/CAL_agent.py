@@ -289,7 +289,7 @@ class CAL(Agent):
         # normalize delta
         delta /= MAX_STEER
 
-        # get delta sign, damping is calculed using the absolute delta
+        # get delta sign, damping is calculated using the absolute delta
         delta_sign = np.sign(delta)
         delta = abs(delta)
 

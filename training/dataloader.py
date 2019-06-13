@@ -208,7 +208,7 @@ def get_data(data_path, seq_len, batch_size):
     val_ds = CAL_Dataset(data_path, 'val', seq_len=seq_len)
     return (
         DataLoader(train_ds, batch_size=batch_size, shuffle=True, pin_memory=True, num_workers=10),
-        DataLoader(val_ds, batch_size=batch_size, pin_memory=True, num_workers=10),
+        DataLoader(val_ds, batch_size=batch_size*2, pin_memory=True, num_workers=10),
     )
 
 def get_mini_data(data_path, seq_len, batch_size=32, l=4000):
@@ -216,5 +216,5 @@ def get_mini_data(data_path, seq_len, batch_size=32, l=4000):
     val_ds = CAL_Dataset(data_path, 'train', seq_len=seq_len, subset_len=l)
     return (
         DataLoader(train_ds, batch_size=batch_size, num_workers=10),
-        DataLoader(val_ds, batch_size=batch_size, num_workers=10)
+        DataLoader(val_ds, batch_size=batch_size*2, num_workers=10)
     )

@@ -112,6 +112,10 @@ class CoRL2017(ExperimentSuite):
             vehicles_tasks = [0, 0, 0, 15]
             pedestrians_tasks = [0, 0, 0, 50]
 
+            poses_tasks = [self._poses_town02()[2]]
+            vehicles_tasks = [0]
+            pedestrians_tasks = [0]
+
         experiments_vector = []
 
         for weather in self.weathers:
