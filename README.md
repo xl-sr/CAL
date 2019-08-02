@@ -3,7 +3,7 @@
 ## Conditional Affordance Learning  ##
 #### In CoRL 2018 [[Paper]](https://arxiv.org/abs/1806.06498) [[Video]](https://www.youtube.com/watch?v=UtUbpigMgr0) [[Talk]](https://www.youtube.com/watch?v=SceH3Al9w_M)
 
-[Axel Sauer<sup> 1, 2</sup>](https://www.msrm.tum.de/rsi/team/wissenschaftliche-mitarbeiter/sauer-axel/),
+[Axel Sauer<sup> 1, 2</sup>](https://axelsauer.com/),
 [Nikolay Savinov<sup> 1</sup>](https://www.nsavinov.com/),
 [Andreas Geiger<sup> 1, 3</sup>](https://ps.is.tuebingen.mpg.de/person/ageiger)
 <br/>
