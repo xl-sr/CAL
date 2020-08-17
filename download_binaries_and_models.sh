@@ -10,4 +10,4 @@ rm -rf CARLA_0.8.2.tar.gz
 # download the model weights
 gdown https://drive.google.com/uc\?id=1mIi83YjB-0Mfole8W6lSuJRrcy1zauSV
 unzip data.zip
-mv data PythonClient/agents/CAL_agent/perception
+mv data python_client/agents/CAL_agent/perception
