@@ -42,7 +42,7 @@ git clone https://github.com/xl-sr/CAL.git
 cd CAL
 
 # create the training environment
-conda env create -f requirements.yml
+conda env create -f environment.yml
 source activate CAL
 
 # run download script
